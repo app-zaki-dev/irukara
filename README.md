@@ -1,35 +1,33 @@
 # Irukara.net フロントエンド
+※リポジトリを移動しました。
 
 ```
 npm isntall
-npm run dev
+npm run local
 ```
 
-### ユーザーテーブル
+## 構成
+OpenAI, StableDiffusionをブラウザで使用する個人開発プロジェクトです。
+もくもくと開発をしています。
 
-{stage}-IrukaraUsersTable
-| 保存カラム | 型 | index | コメント |
-| :--- | :--- | :--- | :--- |
-| id | string | PK | uuid |
-| user_id | string | GSI | signIn 時の id |
-| name | string | GSI | signIn 時の name |
-| email | string | GSI | signIn 時の name |
-| user_image | string | GSI | signIn 時の name |
-| provider | string | GSI | signIn 時の provider |
-| plan | string | GSI | 有料、無料などのプラン |
-| access_count | string | GSI | signIn 時の refresh_token |
-| created_at | | | |
-| updated_at | | | |
-| deleted_at | | | |
+|  | フレームワーク | 言語 |
+| :--- | :--- | :--- |
+| フロントエンド | Next.js | Typescript |
+| バックエンド | Lambda | Typescript |
+| データベース | Dynamodb | |
+| インフラ | Lambda, ApiGateway, EventBridge スケジューラ, S3, upstash | |
+| デプロイ| フロントは、github actionsでvercelにデプロイしてます| |
 
-signIn
-ユーザーがいるか確認。
-いない場合は登録処理
-いる場合は、アクセストークンと有効期限のみ更新
+※バックエンドに関しては、外部公開してないです。
 
-session
-ユーザーを取得
-期限切れなら、リフレッシュトークンを元に新しいアクセストークンを発行。
+<br>
 
-料金プランは下記を参照
-https://www.notion.so/369a88cf3862432291ed630b59c5755f
+### イメージ画像
+- トップ
+![トップ](public/images/readme/irukara-top.png)
+
+- チャット画面
+![alt text](public/images/readme/chat.png)
+
+- リアル画像生成
+![alt text](public/images/readme/real.png)
